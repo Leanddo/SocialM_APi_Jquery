@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function fetchAllPosts() {
     $.ajax({
-        url: 'http://localhost:3000/api/posts',
+        url: 'http://localhost:3000/api/user/posts',
         method: 'GET',
         xhrFields: {
             withCredentials: true 
