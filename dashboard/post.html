@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple SocialMedia Example API - Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body data-bs-theme="dark">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1>Post</h1>
+      <div id="post-container">
+        <!-- Cards will be appended here -->
+      </div>
+      <ul id="list-group">
+        <p id="errorElement"></p>
+        <h1>Comments</h1>
+        <!-- Comment items will be appended here dynamically -->
+      </ul>
+    </div>
+
+    <div id="post-card-template" style="display: none">
+      <a
+        class="link link-offset-2 link-underline link-underline-opacity-0"
+        href=""
+      >
+        <div class="card text-bg-dark mb-3" style="width: 800px">
+          <div class="username card-header">pessoa</div>
+          <div class="card-body">
+            <h5 class="content card-title">title</h5>
+            <p class="created-at card-text">blabla</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <li
+      id="list-card-template"
+      class="list-group-item"
+      style="display: none; margin-bottom: 40px"
+    >
+      <div class="ms-2 me-auto">
+        <div class="username fw-bold">example</div>
+        <div style="display: flex; justify-content: space-between">
+          <span class="text-content">Content for list item</span>
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <b class="created-at"></b>
+            <button type="button" class="deleteButton btn btn-outline-danger">delete</button>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <button
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      class="btn btn-primary bg-primary position-absolute"
+      style="
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        bottom: 10px;
+        right: 10px;
+      "
+    >
+      +
+    </button>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="commentForm" method="post">
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >Message:</label
+                >
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+              <p id="error-message" style="color: red"></p>
+              <!-- Error message display -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  id="submit-Button"
+                  type="submit"
+                  class="commentForm btn btn-primary"
+                >
+                  Publish
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts/loadPost-comments.js"></script>
+    <script src="./scripts/DeleteUserComments.js"></script>
+    <script src="./scripts/comment.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
